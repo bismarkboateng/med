@@ -1,8 +1,9 @@
 import {
-  Card, CardContent, CardDescription,
-  CardFooter, CardHeader, CardTitle,
+  Card, CardHeader, CardTitle,
 } from "@/components/ui/card"
 import Link from "next/link"
+
+
 export default function HomePage() {
   return (
     <main className="flex flex-row items-center justify-center min-h-screen">

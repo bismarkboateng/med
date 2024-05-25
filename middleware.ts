@@ -11,6 +11,7 @@ export function middleware(request: NextRequest) {
 
   const protectedRoutes = [
     "/consultant",
+    "/consultant/book"
   ]
 
   const authRoutes = [
@@ -37,6 +38,7 @@ export const config = {
     "/",
     "/consultant",
     "/consultant/login",
+    "/consultant/book",
     "/patient"
   ]
 }
