@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { Toaster } from 'sonner';
 import "./globals.css";
+import '@mantine/core/styles.css';
+
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 
 const inter = Roboto({
   subsets: ["latin"],
@@ -21,9 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+     <head>
+      <ColorSchemeScript />
+     </head>
      <body className={inter.className}>
-      <Toaster />
-      {children}
+      <MantineProvider>
+        <Toaster />
+        {children}
+      </MantineProvider>
      </body>
     </html>
   );

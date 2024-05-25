@@ -8,6 +8,7 @@ import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/shared/Loader";
 import { IoCheckmarkCircleSharp } from "react-icons/io5";
+import { setCookie } from "@/lib/actions";
 
 
 
@@ -34,6 +35,7 @@ export default function ConsultantLoginPage() {
       const { user: { uid }} = await signInWithEmailAndPassword(auth, user.email, user.password)
       setLoginState("done")
       if (uid) {
+        setCookie(uid)
         router.push("/consultant")
       }
     } catch (error) {
@@ -59,6 +61,7 @@ export default function ConsultantLoginPage() {
               type="text"
               name="email"
               id="email"
+              required
               placeholder="Email address"
               className="outline-none border-none focus:outline-none focus:border-none"
               onChange={handleChange}
@@ -71,8 +74,9 @@ export default function ConsultantLoginPage() {
              <MdKey fontSize={22} className="text-gray-500 ml-1" />
              <input
               type="password"
-              id="password"
               name="password"
+              id="password"
+              required
               className="outline-none border-none focus:outline-none focus:border-none"
               onChange={handleChange}
              />
