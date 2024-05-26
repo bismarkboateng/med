@@ -19,7 +19,10 @@ import { z } from "zod"
 import Loader from '@/components/shared/Loader';
 import { IoCheckmarkCircleSharp } from 'react-icons/io5';
 
+
 const CREATE_CONSULTATION_ENDPOINT = `${process.env.NEXT_PUBLIC_ENDPOINT_BASE_URI}/create`
+
+
 
 export default function MultiStepFormComponent() {
   const [active, setActive] = useState(0);
@@ -37,6 +40,7 @@ export default function MultiStepFormComponent() {
 
   async function onSubmit(values: z.infer<typeof PersonalInFoSchema>) {
     const formatedValues = formatValues(values)
+    console.log(formatedValues)
     try {
       setError("")
       setBookState("loading")

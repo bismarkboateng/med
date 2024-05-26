@@ -2,11 +2,7 @@ import { FormControl, FormField, FormItem,
   FormLabel, FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover"
-import { Calendar, CalendarIcon } from "lucide-react"
-import { format } from "date-fns"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import moment from "moment"
 
  
 
@@ -23,28 +19,11 @@ export default function Consultation({ form }: { form: any }) {
             <FormItem>
               <FormLabel>Date</FormLabel><br />
               <FormControl>
-               <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant={"outline"}
-                    className={cn(
-                      "w-full justify-start text-left font-normal",
-                      !field.value && "text-muted-foreground"
-                    )}
-                  >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    {field.value ? format(field.value, "PPP") : <span>Select a date</span>}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0">
-                  <Calendar
-                    mode="single"
-                    onSelect={field.onChange}
-                    selected={field.value}
-                    
-                  />
-                </PopoverContent>
-               </Popover>
+                <Input
+                 value={moment(field.value).format("YYYY-MM-DD")}
+                 onChange={field.onChange}
+                 className="input-field"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

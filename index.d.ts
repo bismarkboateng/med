@@ -31,3 +31,11 @@ type ConsultationsFromDB = {
       sleep_patterns: string;
     };
 }
+
+type filters = {
+    date: String;
+    patientName: string;
+    healthcare_provider: string;
+    consultation_type: string;
+    medical_condition: string;
+}

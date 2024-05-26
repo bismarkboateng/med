@@ -40,7 +40,7 @@ export default function ConsultantLoginPage() {
       }
     } catch (error) {
       if(error) {
-        setError("Invalid Credentials")
+        setError("Something went wrong, Please try again!")
         setLoginState("")
       }
     }
