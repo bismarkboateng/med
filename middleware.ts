@@ -16,6 +16,7 @@ export function middleware(request: NextRequest) {
 
   const authRoutes = [
     "/consultant/login",
+    "/"
   ]
 
 

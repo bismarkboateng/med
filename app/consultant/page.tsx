@@ -1,64 +1,83 @@
 "use client"
 
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import { deleteCookie } from "@/lib/actions";
 import { auth } from "@/lib/firebase";
 import { signOut } from "firebase/auth";
 import Link from "next/link";
+import axios from "axios"
+import Loader from "@/components/shared/Loader";
+import Consultations from "@/components/shared/Consultations";
 
-// import { deleteCookie } from "@/lib/actions"
-// import { signOut } from "firebase/auth"
-// import { auth } from "@/lib/firebase"
-// export default function Consultant() {
-
-//   const handleLogout = async () => {
-//     try {
-//       await signOut(auth)
-//       deleteCookie()
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   }
-
-//   return (
-//     <section>
-//      <button onClick={handleLogout}>
-//       logout
-//      </button>
-//     </section>
-//   )
-// }
-
-
-
+const GET_ALL_CONSULTATIONS_ENDPOINT = `${process.env.NEXT_PUBLIC_ENDPOINT_BASE_URI}/all`
 export default function Consultant() {
+  const [consultations, setConsultations] = useState< ConsultationsFromDB[] | null>(null)
+  const [consultationsState, setConsultationsState] = useState("")
+  const [error, setError] = useState("")
 
-const handleLogout = async () => {
-   try {
+  const handleLogout = async () => {
+    try {
        await signOut(auth)
        deleteCookie()
      } catch (error) {
        console.log(error)
-     }
- }
+    }
+  }
+
+  useEffect(() => {
+    const getAllConsultations = async () => {
+      try {
+        setConsultationsState("loading...")
+        const { data } = await axios.get(GET_ALL_CONSULTATIONS_ENDPOINT)
+        setConsultationsState("done")
+        setConsultations(data)
+      } catch (error) {
+        setConsultationsState("")
+        setError("Something went wrong, Try again")
+      }
+    }
+
+    getAllConsultations()
+
+  }, [])
+
   return (
     <section className="w-[90%] mt-14 mx-auto lg:w-[80%] border border-red-500">
-     <section>
-      <button onClick={handleLogout}>
-       logout
-      </button>
+     <section className="flex flex-row items-center justify-between">
+      <section>
+        <Button variant="outline" onClick={handleLogout}
+        className="py-1 px-8 text-lg text-gray-500 font-light shadow-md">
+         Logout
+        </Button>
+      </section>
+
+      <section className="flex flex-row items-end justify-end">
+          <Link href="/consultant/book" className="text-white bg-[#000000] rounded-md font-medium text-lg py-1 px-8
+          hover:bg-[#000000]/80 shadow-md">
+            Book
+          </Link>
+      </section>
      </section>
-      <div className="flex flex-row items-end justify-end">
-        <Link href="/consultant/book" className="text-white bg-[#000000] rounded-md font-medium text-lg py-1 px-8
-        hover:bg-[#000000]/80 shadow-md">
-          Book
-        </Link>
-      </div>
-      <div>
-        Search fields
-      </div>
-      <div>
-        all consultations
-      </div>
+
+     <section className="mt-20">
+      <section>
+        search fields
+      </section>
+
+      <section className="mt-10">
+        <h4 className="text-lg text-gray-500 mb-5">All Consultations</h4>
+        <div>
+          {!consultations &&  <Loader isLoading={true} />}
+          {consultationsState === "loading..." && <Loader isLoading={true} />}
+          {consultations && (
+            <section>
+              <Consultations consultations={consultations} />
+            </section>
+          )}
+        </div>
+      </section>
+     </section>
     </section>
   )
 }

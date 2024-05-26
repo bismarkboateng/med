@@ -72,44 +72,6 @@ export default function MedicalHistory({ form }: { form: any }) {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="family_medical_history"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Family Medical History</FormLabel>
-              <FormControl>
-                <Textarea
-                 placeholder="Patient's family medical history"
-                 className="input-field"
-                 rows={5}
-                 onChange={field.onChange}
-                 value={field.value}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="immunization_records"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Immunization Records</FormLabel>
-              <FormControl>
-                <Textarea
-                 placeholder="Immunization records"
-                 className="input-field"
-                 rows={5}
-                 onChange={field.onChange}
-                 value={field.value}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
       </section>
     </section>
   )

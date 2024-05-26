@@ -20,10 +20,10 @@ export default function PatientProblem({ form }: { form: any }) {
           name="primary_complaint"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Primary Complaint</FormLabel>
+              <FormLabel>Medical Condition</FormLabel>
               <FormControl>
                 <Textarea
-                 placeholder="Patient primary complaint"
+                 placeholder="Medical condition"
                  className="input-field"
                  rows={5}
                  onChange={field.onChange}
@@ -62,25 +62,6 @@ export default function PatientProblem({ form }: { form: any }) {
               <FormControl>
                 <Textarea
                  placeholder="Severity and nature of symptoms"
-                 className="input-field"
-                 rows={5}
-                 onChange={field.onChange}
-                 value={field.value}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="previous_consultations"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Previous Consultations</FormLabel>
-              <FormControl>
-                <Textarea
-                 placeholder="Previous consultations"
                  className="input-field"
                  rows={5}
                  onChange={field.onChange}

@@ -140,42 +140,6 @@ export default function PersonalInFo({ form }: { form: any }) {
             </FormItem>
           )}
         />
-
-        <section className="mt-5">
-          <div className="text-lg text-center underline">
-            Emergency Contact Information
-          </div>
-          <div className="flex flex-col gap-2">
-            <FormField
-             control={form.control}
-             name="emergency_contact_fullName"
-             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input placeholder="Name" {...field} className="input-field
-                  text-lg placeholder:text-sm" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-             )}
-            />
-            <FormField
-             control={form.control}
-             name="emergency_contact_phoneNumber"
-             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Phone Number</FormLabel>
-                <FormControl>
-                  <Input placeholder="+233..." {...field} className="input-field
-                  text-lg placeholder:text-sm" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-             )}
-            />
-          </div>
-        </section>
       </section>
     </section>
   )
