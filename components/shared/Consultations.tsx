@@ -23,7 +23,7 @@ export default function ConsultationCard({ consultations }: { consultations: Con
         {consultations.map((consultation) => (
           <TableRow key={consultation._id} className="cursor-pointer">
             <TableCell className="font-medium">
-              <Link href={`/patient/${consultation._id}`}>
+              <Link href={`/patient/consultation/${consultation._id}`}>
                {consultation.personal_information.fullName}
               </Link>
             </TableCell>

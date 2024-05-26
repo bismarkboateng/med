@@ -1,10 +1,10 @@
 import { ClipLoader } from "react-spinners";
 
 
-export default function Loader({ isLoading }: { isLoading: boolean }) {
+export default function Loader({ isLoading, color }: { isLoading: boolean, color?: string }) {
   return (
     <ClipLoader
-     color="white"
+     color={color || "white"}
      size={20}
      loading={isLoading}
     />

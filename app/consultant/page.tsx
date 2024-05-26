@@ -61,14 +61,14 @@ export default function Consultant() {
      </section>
 
      <section className="mt-20">
-      <section>
+      <section className="ml-4">
         search fields
       </section>
 
       <section className="mt-10">
-        <h4 className="text-lg text-gray-500 mb-5">All Consultations</h4>
+        <h4 className="text-lg text-gray-500 mb-5 ml-4">All Consultations</h4>
         <div>
-          {!consultations &&  <Loader isLoading={true} />}
+          {!consultations &&  <Loader isLoading={true} color="black" />}
           {consultationsState === "loading..." && <Loader isLoading={true} />}
           {consultations && (
             <section>
