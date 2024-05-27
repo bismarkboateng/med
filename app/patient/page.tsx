@@ -35,7 +35,7 @@ export default function PatientSearchPage() {
        <Input
         type="text"
         placeholder="type your name"
-        className="input-field w-[20%]"
+        className="input-field w-[60%] md:w-[45%]"
         name="patientName"
         value={patientName}
         onChange={handleChange}

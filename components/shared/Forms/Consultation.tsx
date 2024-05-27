@@ -9,7 +9,7 @@ import moment from "moment"
 export default function Consultation({ form }: { form: any }) {
 
   return (
-    <section className="w-[40%] mx-auto">
+    <section className="w-full md:w-[75%] lg:w-[50%] mx-auto">
       <section className="w-full space-y-3">
         <div className="underline text-lg text-center my-5">Consultation</div>
         <FormField

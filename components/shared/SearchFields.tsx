@@ -16,9 +16,9 @@ export default function SearchFields({ filters, onChange, handleSearch, setSearc
   const formattedDate = filters.date ? moment(filters.date as string).format("YYYY-MM-DD") : '';
   
   return (
-    <section className="flex flex-row items-center justify-between">
+    <section className="flex flex-row items-start lg:justify-between">
      <section className="w-[75%] flex flex-row items-center">
-      <div className="flex flex-row gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
        <Input
         type="date"
         placeholder="date"
@@ -61,7 +61,7 @@ export default function SearchFields({ filters, onChange, handleSearch, setSearc
        />
       </div>
      </section>
-     <div className="flex flex-row items-center gap-2">
+     <div className="flex flex-row ml-1 items-center gap-2">
       <div
        className="bg-black text-white py-[7px] px-3 rounded-md text-center font-medium
        cursor-pointer shadow-md"

@@ -21,7 +21,7 @@ import { Popover,PopoverContent,
 export default function PersonalInFo({ form }: { form: any }) {
 
   return (
-    <section className="w-[40%] mx-auto">
+    <section className="w-full md:w-[75%] lg:w-[50%] mx-auto">
       <section className="w-full">
         <div className="underline text-lg text-center my-5">Personal Information</div>
         <FormField
@@ -38,7 +38,7 @@ export default function PersonalInFo({ form }: { form: any }) {
             </FormItem>
           )}
         />
-        <section className="flex flex-row items-center justify-between gap-2 mt-3">
+        <section className="w-full flex flex-col md:flex-row items-center justify-between gap-2 mt-3">
          <FormField
           control={form.control}
           name="gender"
@@ -47,7 +47,8 @@ export default function PersonalInFo({ form }: { form: any }) {
               <FormLabel>Gender</FormLabel>
               <FormControl className="">
                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <SelectTrigger className="w-[200px] input-field">
+                <SelectTrigger className="w-[330px] md:w-[250px] lg:w-[180px] input-field
+                xl:w-[230px] 2xl:w-[260px]">
                  <SelectValue placeholder="Gender" />
                 </SelectTrigger>
                 <SelectContent>
@@ -72,7 +73,7 @@ export default function PersonalInFo({ form }: { form: any }) {
                   <Button
                     variant={"outline"}
                     className={cn(
-                      "w-[280px] justify-start text-left font-normal",
+                      "w-[330px] md:w-[250px] lg:w-[180px] xl:w-[230px] 2xl:w-[260px] justify-start text-left font-normal",
                       !field.value && "text-muted-foreground"
                     )}
                   >
