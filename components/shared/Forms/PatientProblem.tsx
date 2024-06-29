@@ -17,7 +17,7 @@ export default function PatientProblem({ form }: { form: any }) {
         <div className="underline text-lg text-center my-5">Patient Problem</div>
         <FormField
           control={form.control}
-          name="primary_complaint"
+          name="medical_condition"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Medical Condition</FormLabel>

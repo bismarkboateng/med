@@ -34,10 +34,8 @@ export default function ConsultantLoginPage() {
       setLoginState("Logging in...")
       const { user: { uid }} = await signInWithEmailAndPassword(auth, user.email, user.password)
       setLoginState("done")
-      if (uid) {
-        setCookie(uid)
-        router.push("/consultant")
-      }
+      setCookie(uid)
+      router.push("/consultant")
     } catch (error) {
       if(error) {
         setError("Something went wrong, Please try again!")
